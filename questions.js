@@ -10,12 +10,15 @@ const exercisesData = [
 
 let currentExercise = 1;
 
+let correctAnswersCount = 0; // Variable to keep track of correct answers
+
+
 
 function startVerification() {
     currentExercise = 1; // Reset the current exercise
+    correctAnswersCount = 0; // Reset the correct answers count
     verifyExercise(currentExercise);
 }
-
 
 // Define the drag function for draggable elements
 function drag(event, source) {
@@ -68,8 +71,9 @@ function drop(event, target) {
 
 
 
-
 function verifyExercise(exerciseIndex) {
+    console.log(exerciseIndex, "exerciseIndex");
+
     const prixValue = parseFloat(document.getElementById(`prixInput${exerciseIndex}`).value);
     const pourcentageValue = parseFloat(document.getElementById(`pourcentageInput${exerciseIndex}`).value);
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
@@ -82,16 +86,23 @@ function verifyExercise(exerciseIndex) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
 
+        correctAnswersCount++; // Increment correct answers count
+
+        // Check if all exercises are answered correctly
+        if (correctAnswersCount === exercisesData.length) {
+            // Reset currentExercise to 1 when all exercises are completed
+            currentExercise = 1;
+        }
+
         // Check if there's a next exercise
         if (exerciseIndex < exercisesData.length) {
             // Move to the next exercise after a delay
             setTimeout(() => {
                 validationResult.style.display = "none"; // Hide the current validation message
                 scrollToExercise(exerciseIndex + 1);
-                verifyExercise(exerciseIndex + 1); // Verify the next exercise
             }, 2000); // Delay of 2 seconds (adjust as needed)
         } else {
-            // Handle case when all exercises are completed
+            // Handle the case when all exercises are completed
             validationResult.textContent = "Félicitations ! 🎉 Vous avez terminé toutes les exercices !";
             validationResult.className = "validation-success";
             validationResult.style.display = "block";

@@ -99,7 +99,7 @@ button:hover {
     display: flex;
     justify-content: center; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
-    height: 100vh; /* Set height to full viewport height to center vertically */
+    height: 30vh; /* Set height to full viewport height to center vertically */
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -113,7 +113,7 @@ button:hover {
     display: flex;
     justify-content: center; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
-    height: 100vh; /* Set height to full viewport height to center vertically */
+    height: 30vh; /* Set height to full viewport height to center vertically */
     text-align: center;
     font-weight: bold;
     font-size: 18px;
@@ -127,7 +127,7 @@ button:hover {
     display: flex;
     justify-content: center; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
-    height: 100vh; /* Set height to full viewport height to center vertically */
+    height: 30vh; /* Set height to full viewport height to center vertically */
     text-align: center;
     font-weight: bold;
     font-size: 18px;
