@@ -2,10 +2,20 @@
 
 const exercisesData = [
     { prix: 49425, pourcentage: 0.04 },
+    { prix: 49426, pourcentage: 0.05 },
+    { prix: 49427, pourcentage: 0.06 },
+    { prix: 49428, pourcentage: 0.07 },
     // Define data for other exercises here
 ];
 
 let currentExercise = 1;
+
+
+function startVerification() {
+    currentExercise = 1; // Reset the current exercise
+    verifyExercise(currentExercise);
+}
+
 
 // Define the drag function for draggable elements
 function drag(event, source) {
@@ -56,39 +66,45 @@ function drop(event, target) {
 
 
 
-function verifyValues() {
-    const prixValue = parseFloat(document.getElementById(`prixInput`).value);
-    const pourcentageValue = parseFloat(document.getElementById(`pourcentageInput`).value);
-    const validationResult = document.getElementById(`validationResult${currentExercise}`);
+
+
+
+function verifyExercise(exerciseIndex) {
+    const prixValue = parseFloat(document.getElementById(`prixInput${exerciseIndex}`).value);
+    const pourcentageValue = parseFloat(document.getElementById(`pourcentageInput${exerciseIndex}`).value);
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
     const tolerance = 0.0001; // Define a tolerance level for comparisons
 
-
- 
-
     if (
-        Math.abs(prixValue - exercisesData[currentExercise - 1].prix) < tolerance &&
-        Math.abs(pourcentageValue - exercisesData[currentExercise - 1].pourcentage) < tolerance
-
+        Math.abs(prixValue - exercisesData[exerciseIndex - 1].prix) < tolerance &&
+        Math.abs(pourcentageValue - exercisesData[exerciseIndex - 1].pourcentage) < tolerance
     ) {
-
-
-
-
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
-        
+
         // Check if there's a next exercise
-        if (currentExercise < exercisesData.length) {
-            currentExercise++; // Move to the next exercise
-            scrollToExercise(currentExercise);
+        if (exerciseIndex < exercisesData.length) {
+            // Move to the next exercise after a delay
+            setTimeout(() => {
+                validationResult.style.display = "none"; // Hide the current validation message
+                scrollToExercise(exerciseIndex + 1);
+                verifyExercise(exerciseIndex + 1); // Verify the next exercise
+            }, 2000); // Delay of 2 seconds (adjust as needed)
+        } else {
+            // Handle case when all exercises are completed
+            validationResult.textContent = "Félicitations ! 🎉 Vous avez terminé toutes les exercices !";
+            validationResult.className = "validation-success";
+            validationResult.style.display = "block";
         }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
+        validationResult.style.display = "block";
     }
-
-    validationResult.style.display = "block";
 }
+
+
+
 
 
 function scrollToExercise(exerciseIndex) {

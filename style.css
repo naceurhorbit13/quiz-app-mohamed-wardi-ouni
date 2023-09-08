@@ -1,11 +1,11 @@
 /* style.css */
 
+/* Use a kid-friendly font */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 16px;
 }
+
 
 h1 {
     text-align: center;
@@ -27,39 +27,43 @@ table {
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
 }
 
 th, td {
     border: 1px solid #ddd;
     text-align: center;
     padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border-radius: 5px; /* Rounded corners */
 }
 
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
+
 
 input {
     width: 80px;
-    padding: 5px;
+    padding: 8px;
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
 }
 
 button {
-    padding: 8px 16px;
-    background-color: #007bff;
+    padding: 12px 24px; /* Larger button size */
+    background-color: #ff6f61;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Rounded corners */
     cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s; /* Add transitions for smoother effects */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ff3c36;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow on hover */
 }
+
 
 #prixVente {
     font-weight: bold;
@@ -69,7 +73,7 @@ button:hover {
 .draggable {
     font-weight: bold;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 8px 16px;
     border-radius: 15px;
     transition: background-color 0.2s, transform 0.2s;
 }
@@ -78,6 +82,7 @@ button:hover {
     background-color: #d88c8c;
     transform: scale(1.05);
 }
+
 
 .dragged {
     background-color: #f5f5f5;
@@ -89,22 +94,62 @@ button:hover {
     background-color: #f5f5f5;
 }
 
-#validationResult {
-    display: none;
+
+#validationResult1 {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Set height to full viewport height to center vertically */
     text-align: center;
     font-weight: bold;
     font-size: 18px;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+
+#validationResult2 {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Set height to full viewport height to center vertically */
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
+#validationResult3 {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Set height to full viewport height to center vertically */
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Rest of your validation styles */
 .validation-success {
-    color: green;
-    background-color: #e9f7eb;
+    color: #2ecc71;
+    background-color: #d4f1de;
 }
 
 .validation-error {
-    color: red;
-    background-color: #fce8e8;
+    color: #e74c3c;
+    background-color: #fadbd8;
 }
+
+#validationResult1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+

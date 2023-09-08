@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Calcul de Prix de Vente</title>
+    <title>Mohamed Wardi Ouni Mathematics Quiz App</title>
 </head>
 <body>
     <div >
@@ -12,7 +12,7 @@
       <h1>exercice 1</h1>
 
         <!-- Exercise 1 -->
-        <div>
+        <div id="exercise1">
             <p>Mon père a acheté un terrain pour <b id="draggedValue1" class="draggable" draggable="true" ondragstart="drag(event, this)">49425€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue2" class="draggable" draggable="true" ondragstart="drag(event, this)">4%</b>, en cherchant le prix de vente du terrain?</p>
             <table>
                 <tr>
@@ -21,20 +21,95 @@
                 </tr>
                 <tr>
                     <td>Prix d'achat du terrain</td>
-                    <td><input type="number" id="prixInput" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    <td><input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr>
                     <td>Pourcentage de profit</td>
-                    <td><input type="number" id="pourcentageInput" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    <td><input type="number" id="pourcentageInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button onclick="verifyValues(1)">Vérifier les valeurs</button>
+                        <button onclick="verifyExercise(1)">Vérifier les valeurs</button>
                     </td>
                 </tr>
             </table>
             <div id="validationResult1"></div>
         </div>
+
+
+        <div id="exercise2">
+            <h1>exercice 2</h1>
+
+            <div>
+                <p>Mon père a acheté un terrain pour <b id="draggedValue3" class="draggable" draggable="true" ondragstart="drag(event, this)">49426€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue4" class="draggable" draggable="true" ondragstart="drag(event, this)">5%</b>, en cherchant le prix de vente du terrain?</p>
+                <table>
+                    <tr>
+                        <th>Signification verbale</th>
+                        <th>Valeur numérique</th>
+                    </tr>
+                    <tr>
+                        <td>Prix d'achat du terrain</td>
+                        <td><input type="number" id="prixInput2" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td>Pourcentage de profit</td>
+                        <td><input type="number" id="pourcentageInput2" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button onclick="verifyExercise(2)">Vérifier les valeurs</button>
+                        </td>
+                    </tr>
+                </table>
+                <div id="validationResult2"></div>
+            </div>
+
+        </div>
+        
+        <div id="exercise3">
+            <h1>exercice 3</h1>
+
+
+            <div>
+                <p>Mon père a acheté un terrain pour <b id="draggedValue5" class="draggable" draggable="true" ondragstart="drag(event, this)">49427€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue6" class="draggable" draggable="true" ondragstart="drag(event, this)">6%</b>, en cherchant le prix de vente du terrain?</p>
+                <table>
+                    <tr>
+                        <th>Signification verbale</th>
+                        <th>Valeur numérique</th>
+                    </tr>
+                    <tr>
+                        <td>Prix d'achat du terrain</td>
+                        <td><input type="number" id="prixInput3" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td>Pourcentage de profit</td>
+                        <td><input type="number" id="pourcentageInput3" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button onclick="verifyExercise(3)">Vérifier les valeurs</button>
+                        </td>
+                    </tr>
+                </table>
+                <div id="validationResult3"></div>
+            </div>
+
+
+            <button onclick="startVerification()">Start Verification</button>
+
+
+
+        </div>
+
+
+
+
+
+  
+        </div>
+
+
+
 
 </div>
 
