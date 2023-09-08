@@ -1,6 +1,4 @@
-/* style.css */
 
-/* Use a kid-friendly font */
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 16px;
@@ -151,5 +149,26 @@ button:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+
+
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+  }
+  
+  #progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50; /* Green color for the progress bar */
+    transition: width 0.3s; /* Smooth transition animation for the width change */
+  }
+
+  
+
 
 

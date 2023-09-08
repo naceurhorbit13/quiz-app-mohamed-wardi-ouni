@@ -15,10 +15,11 @@ let correctAnswersCount = 0; // Variable to keep track of correct answers
 
 
 function startVerification() {
-    currentExercise = 1; // Reset the current exercise
-    correctAnswersCount = 0; // Reset the correct answers count
+    currentExercise = 1;
+    correctAnswersCount = 0;
+    updateProgressBar(0);
     verifyExercise(currentExercise);
-}
+  }
 
 // Define the drag function for draggable elements
 function drag(event, source) {
@@ -112,9 +113,39 @@ function verifyExercise(exerciseIndex) {
         validationResult.className = "validation-error";
         validationResult.style.display = "block";
     }
+
+
+ 
+      correctAnswersCount++;
+
+
+      const progress = (correctAnswersCount / 6) * 100;
+
+     console.log(progress,"progress");
+
+      updateProgressBar(progress);
+  
+
+
+    if (exerciseNumber < 3) {
+        currentExercise++;
+        verifyExercise(currentExercise);
+      } else {
+        alert("Verification completed!");
+      }
+    
 }
 
 
+
+function updateProgressBar(progress) {
+    console.log(progress,"progress");
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.width = `${progress}%`;
+  }
+
+
+  
 
 
 
@@ -123,4 +154,54 @@ function scrollToExercise(exerciseIndex) {
     if (nextExercise) {
         nextExercise.scrollIntoView({ behavior: 'smooth' });
     }
+}
+
+
+// Get references to the progress container and progress bar elements
+const progressContainer = document.getElementById('progress-container');
+const progressBar = document.getElementById('progress-bar');
+
+// Add a global mousemove event listener to update the position
+// Remove this line
+
+  
+// Function to show the progress container and progress bar
+// Function to show the progress container and position it at the current screen position
+function showProgressBar() {
+    progressContainer.style.display = 'block';
+  
+    // Calculate the current scroll position
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+  
+    // Set the position of the progress container
+    progressContainer.style.left = scrollX + 'px';
+    progressContainer.style.top = scrollY + 'px';
+  }
+  
+
+// Function to hide the progress container and progress bar
+function hideProgressBar() {
+  progressContainer.style.display = 'none';
+}
+
+
+
+
+function resetValues(currentExercise) {
+    // Reset the dragged values
+    const draggedValue1 = document.getElementById('draggedValue1');
+    const draggedValue2 = document.getElementById('draggedValue2');
+    draggedValue1.style.left = '0';
+    draggedValue2.style.left = '0';
+
+    // Reset the input fields
+    const prixInput1 = document.getElementById('prixInput1');
+    const pourcentageInput1 = document.getElementById('pourcentageInput1');
+    prixInput1.value = '';
+    pourcentageInput1.value = '';
+
+    // Clear the validation result
+    const validationResult1 = document.getElementById('validationResult1');
+    validationResult1.textContent = '';
 }
