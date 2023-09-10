@@ -22,7 +22,11 @@
                 </tr>
                 <tr>
                     <td>Prix d'achat du terrain</td>
-                    <td><input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    <td>
+                        <input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                    
+                    
+                    </td>
                 </tr>
                 <tr>
                     <td>Pourcentage de profit</td>
@@ -64,6 +68,8 @@
                     <tr>
                         <td colspan="2">
                             <button onclick="verifyExercise(2)">Vérifier les valeurs</button>
+                            <button onclick="resetValues(2)">Ressayer</button>
+
                         </td>
                     </tr>
                 </table>
@@ -96,6 +102,8 @@
                     <tr>
                         <td colspan="2">
                             <button onclick="verifyExercise(3)">Vérifier les valeurs</button>
+                            <button onclick="resetValues(3)">Ressayer</button>
+
                         </td>
                     </tr>
                 </table>
