@@ -4,8 +4,9 @@
 
 const exercisesData = [
     { prix: 49425, pourcentage: 0.04 },
-    { prix: 49426, pourcentage: 0.05 },
-    { prix: 49427, pourcentage: 0.06 }
+    { ob1: 104, ob2: 1977, ob3: 49425 * (1 + 0.04) },
+    { prix: 49427, pourcentage: 0.06 },
+
    
     // Define data for other exercises here
 ];
@@ -42,7 +43,6 @@ function drop(event, target) {
         
         if (numericPart) {
             numericValue = parseFloat(numericPart[0].replace(',', '.'));
-            console.log(numericValue,"numericValue");
         } else {
             numericValue = NaN;
         }
@@ -122,7 +122,47 @@ function verifyExercise(exerciseIndex) {
 
 
 
+function verifyQuestion2(exerciseIndex) {
 
+
+
+    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
+    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
+    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
 
 
 
@@ -164,4 +204,9 @@ function resetValues(exerciseIndex) {
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
     validationResult.textContent = '';
 }
+
+
+
+
+
 

@@ -12,7 +12,7 @@
 
         <!-- Exercise 1 -->
         <div id="exercise1">
-            <h1>exercice 1</h1>
+            <h1>Exercice 1 : Question 1</h1>
 
             <p>Mon père a acheté un terrain pour <b id="draggedValue1" class="draggable" draggable="true" ondragstart="drag(event, this)">49425€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue2" class="draggable" draggable="true" ondragstart="drag(event, this)">4%</b>, en cherchant le prix de vente du terrain?</p>
             <table>
@@ -49,31 +49,43 @@
         
 
         <div id="exercise2">
-            <h1>exercice 2</h1>
+            <h1>Exercice 1 : Question 2</h1>
 
             <div>
-                <p>Mon père a acheté un terrain pour <b id="draggedValue3" class="draggable" draggable="true" ondragstart="drag(event, this)">49426€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue4" class="draggable" draggable="true" ondragstart="drag(event, this)">5%</b>, en cherchant le prix de vente du terrain?</p>
-                <table>
-                    <tr>
-                        <th>Signification verbale</th>
-                        <th>Valeur numérique</th>
-                    </tr>
-                    <tr>
-                        <td>Prix d'achat du terrain</td>
-                        <td><input type="number" id="prixInput2" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
-                    </tr>
-                    <tr>
-                        <td>Pourcentage de profit</td>
-                        <td><input type="number" id="pourcentageInput2" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button onclick="verifyExercise(2)">Vérifier les valeurs</button>
-                            <button onclick="resetValues(2)">Ressayer</button>
+                <p> Complétez la reconstruction du tableau suivant en plaçant les deux signifiants dans les cases appropriées, en vous basant sur le tableau de données précédent </p>
+                <table> 
+                    <thead> 
+                        <tr> 
+                            <th>L'origine</th>
+                             <th>L'augmentation</th> 
+                             <th>L'origine - L'augmentation</th> 
+                            </tr> </thead>
+                             <tbody> 
+                                <tr>
+                                     <td>Le prix d'achat du terrain</td> 
+                                     <td>Profit</td> 
+                                     <td>Le prix de vente du terrain</td>
+                                     </tr> <tr> <td>100 %</td>
+                                         <td>4 %</td>
+                                          <td> ( Ob 1 )  
+                                            <input type="text" id="ob1Value1" placeholder="Enter text">
+                                        </td> </tr> <tr> <td>49425 €</td>
+                                             <td> ( Ob 2) <input type="text" id="ob2Value2" placeholder="Enter text" ></td> 
+                                             <td> ( Ob 3) <input type="text" id="ob3Value3" placeholder="Enter text" ></td> </tr> 
+                                            
+                                             <td colspan="3">
+                                                <button onclick="verifyQuestion2(2)">Vérifier les valeurs</button>
+                                                <button onclick="resetValues(1)">Ressayer</button>
+                        
+                                            </td>
+                                            
+                                           
+                                        
+                                        
+                                        </tbody> </table>
 
-                        </td>
-                    </tr>
-                </table>
+
+
                 <div id="validationResult2"></div>
             </div>
 
@@ -140,5 +152,7 @@
 
     </div>
     <script src="questions.js"></script>
+
+  
 </body>
 </html>
