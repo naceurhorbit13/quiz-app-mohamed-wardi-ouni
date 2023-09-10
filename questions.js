@@ -13,6 +13,9 @@ const exercisesData = [
 let currentExercise = 1;
 let correctAnswersCount = 0;
 
+let  wrongAnswerCount = 0;
+
+
 // Initialize progress bar elements
 const progressContainer = document.getElementById('progress-container');
 const progressBar = document.getElementById('progress-bar');
@@ -58,15 +61,26 @@ function drop(event, target) {
     draggedValue.classList.remove("dragged");
 }
 
+
+
+function updateProgressBar(progress) {
+    const progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = `${progress}%`;
+
+    const progressText = document.getElementById('progress-text');
+    progressText.textContent = `${progress.toFixed(2)}%`;
+}
+
+
+
 function verifyExercise(exerciseIndex) {
     const prixValue = parseFloat(document.getElementById(`prixInput${exerciseIndex}`).value);
     const pourcentageValue = parseFloat(document.getElementById(`pourcentageInput${exerciseIndex}`).value);
 
-    console.log(pourcentageValue, `pourcentageInput${exerciseIndex}`);
-    console.log(prixValue, `prixInput${exerciseIndex}`);
-
+  
 
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
     const tolerance = 0.0001;
 
     if (Math.abs(prixValue - exercisesData[exerciseIndex - 1].prix) < tolerance &&
@@ -76,26 +90,27 @@ function verifyExercise(exerciseIndex) {
         validationResult.className = "validation-success";
         correctAnswersCount++;
 
-        if (correctAnswersCount === exercisesData.length) {
-            currentExercise = 1;
-        }
 
-        if (exerciseIndex < exercisesData.length) {
-            setTimeout(() => {
-                validationResult.style.display = "none";
-
-                scrollToExercise(exerciseIndex + 1);
-            }, 2000);
-        } else {
-            validationResult.textContent = "Félicitations ! 🎉 Vous avez terminé toutes les exercices !";
-            validationResult.className = "validation-success";
-            validationResult.style.display = "block";
-        }
+        // Fill the progress bar chunk with green color
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-        validationResult.style.display = "block";
     }
+
+    // Always scroll to the next exercise
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+
+    }
+
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
     updateProgressBar(progress);
@@ -109,12 +124,11 @@ function verifyExercise(exerciseIndex) {
 
 
 
-function updateProgressBar(progress) {
-    progressBar.style.width = `${progress}%`;
-}
+
 
 function scrollToExercise(exerciseIndex) {
     const currentValidationResult = document.getElementById(`validationResult${currentExercise}`);
+
 
     if (currentValidationResult) {
         currentValidationResult.style.display = "none";

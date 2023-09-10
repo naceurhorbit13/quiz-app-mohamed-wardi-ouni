@@ -168,6 +168,18 @@ button:hover {
     transition: width 0.3s; /* Smooth transition animation for the width change */
   }
 
+
+  #progress-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 10px; /* Add some padding for better visibility */
+    line-height: 20px; /* Align vertically with the progress bar */
+    color: #000; /* Text color */
+    font-weight: bold; /* Optionally, make the text bold */
+}
+
+
   
 
 
