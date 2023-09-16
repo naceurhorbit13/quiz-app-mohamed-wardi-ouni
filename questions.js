@@ -5,7 +5,25 @@
 const exercisesData = [
     { prix: 49425, pourcentage: 0.04 },
     { ob1: 104, ob2: 1977, ob3: 49425 * (1 + 0.04) },
-    { prix: 49427, pourcentage: 0.06 },
+
+
+    { ob4: 104},
+
+    { ob5: 1977},
+
+    { ob6: 51402},
+
+
+
+    { ob6: 104},
+
+    { ob7: 51402},
+
+
+    { ob8: 51402},
+
+
+
 
    
     // Define data for other exercises here
@@ -124,6 +142,8 @@ function verifyExercise(exerciseIndex) {
 
 function verifyQuestion2(exerciseIndex) {
 
+    console.log(exerciseIndex, "exerciseIndex of question 2");
+
 
 
     const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
@@ -164,6 +184,277 @@ function verifyQuestion2(exerciseIndex) {
     updateProgressBar(progress);
 }
 
+
+function verifyQuestion3(exerciseIndex) {
+
+
+
+    const ob4Value = parseFloat(document.getElementById('ob4Value1').value);
+
+  
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+    console.log(validationResult, "validationResult");
+
+
+ 
+
+
+    if (
+(ob4Value === exercisesData[2].ob4)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
+
+function verifyQuestion4(exerciseIndex) {
+
+
+
+
+
+    const ob5Value = parseFloat(document.getElementById('ob5Value1').value);
+
+
+
+
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob5Value === exercisesData[3].ob5 )
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
+
+function verifyQuestion5(exerciseIndex) {
+
+
+
+    console.log(exerciseIndex, "exerciseIndex of exercice 5");
+
+
+    const ob6Value = parseFloat(document.getElementById('ob6Value1').value);
+ 
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob6Value === exercisesData[4].ob6)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
+
+function verifyQuestion6(exerciseIndex) {
+
+
+    console.log(exerciseIndex, "exerciseIndex of exercice 6");
+
+
+
+
+    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
+    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
+    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
+
+function verifyQuestion7(exerciseIndex) {
+
+
+    console.log(exerciseIndex, "exerciseIndex of exercice 7");
+
+
+
+
+    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
+    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
+    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
+
+function verifyQuestion8(exerciseIndex) {
+
+
+    console.log(exerciseIndex, "exerciseIndex of exercice 8");
+
+
+    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
+    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
+    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+
+
+ 
+
+
+    if (
+(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+    ) {
+        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+        validationResult.className = "validation-success";
+        correctAnswersCount++;
+    } else {
+        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+        validationResult.className = "validation-error";
+    }
+
+    if (exerciseIndex < exercisesData.length) {
+        setTimeout(() => {
+            validationResult.style.display = "none";
+            scrollToExercise(exerciseIndex + 1);
+        }, 2000);
+    }
+
+    if (exerciseIndex === exercisesData.length) {
+        scrollToExercise(1);
+    }
+
+    const progress = (correctAnswersCount / exercisesData.length) * 100;
+    updateProgressBar(progress);
+}
 
 
 function scrollToExercise(exerciseIndex) {
