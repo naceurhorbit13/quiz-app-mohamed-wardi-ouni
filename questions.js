@@ -15,12 +15,12 @@ const exercisesData = [
 
 
 
-    { ob6: 104},
-
-    { ob7: 51402},
-
+    { ob7: 104},
 
     { ob8: 51402},
+
+
+    { ob9: 51402},
 
 
 
@@ -280,7 +280,6 @@ function verifyQuestion5(exerciseIndex) {
 
 
 
-    console.log(exerciseIndex, "exerciseIndex of exercice 5");
 
 
     const ob6Value = parseFloat(document.getElementById('ob6Value1').value);
@@ -328,9 +327,8 @@ function verifyQuestion6(exerciseIndex) {
 
 
 
-    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
-    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
-    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+    const ob7Value = parseFloat(document.getElementById('ob7Value1').value);
+
 
 
 
@@ -341,7 +339,7 @@ function verifyQuestion6(exerciseIndex) {
 
 
     if (
-(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+(ob7Value === exercisesData[5].ob7)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -369,14 +367,13 @@ function verifyQuestion6(exerciseIndex) {
 function verifyQuestion7(exerciseIndex) {
 
 
-    console.log(exerciseIndex, "exerciseIndex of exercice 7");
 
 
 
 
-    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
-    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
-    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+    const ob8Value = parseFloat(document.getElementById('ob8Value1').value);
+
+
 
 
 
@@ -387,7 +384,7 @@ function verifyQuestion7(exerciseIndex) {
 
 
     if (
-(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+(ob8Value === exercisesData[6].ob8)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -418,9 +415,7 @@ function verifyQuestion8(exerciseIndex) {
     console.log(exerciseIndex, "exerciseIndex of exercice 8");
 
 
-    const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
-    const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
-    const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
+    const ob9Value = parseFloat(document.getElementById('ob9Value1').value);
 
 
 
@@ -431,7 +426,7 @@ function verifyQuestion8(exerciseIndex) {
 
 
     if (
-(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+(ob9Value === exercisesData[7].ob9)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
