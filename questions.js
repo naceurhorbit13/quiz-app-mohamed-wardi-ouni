@@ -115,10 +115,16 @@ function displayCorrection(exerciseIndex) {
     if (exerciseData) {
       correctionText.textContent = `Description: ${exerciseData.description}\n\n\n`;
       
-      // Add specific properties for the exercise (e.g., prix, pourcentage, ob1, ob2, etc.) with spaces
+      // Add specific properties for the exercise (e.g., prix, pourcentage, ob1, ob2, etc.) with formatted names
       for (const prop in exerciseData) {
         if (prop !== "exerciseIndex" && prop !== "description") {
-          correctionText.textContent += `${prop}: ${exerciseData[prop]}\n\n`;
+          // Format property name for better readability
+          const formattedPropName = prop
+            .split("_")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+          
+          correctionText.textContent += `${formattedPropName}: ${exerciseData[prop]}\n\n`;
         }
       }
   
@@ -126,7 +132,8 @@ function displayCorrection(exerciseIndex) {
     } else {
       correctionText.textContent = "Exercise not found.";
     }
-  }
+}
+
 
   
 
