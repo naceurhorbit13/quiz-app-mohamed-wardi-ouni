@@ -476,7 +476,7 @@ function hideProgressBar() {
     progressContainer.style.display = 'none';
 }
 
-function resetValues(exerciseIndex) {
+function resetValues1(exerciseIndex) {
     const draggedValue1 = document.getElementById(`draggedValue${exerciseIndex}`);
     const draggedValue2 = document.getElementById(`draggedValue${exerciseIndex}`);
     draggedValue1.style.left = '0';
@@ -490,6 +490,105 @@ function resetValues(exerciseIndex) {
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
     validationResult.textContent = '';
 }
+
+
+
+function resetValues2(exerciseIndex) {
+    const ob1Value1 = document.getElementById('ob1Value1');
+    const ob2Value2 = document.getElementById('ob2Value2');
+    const ob3Value3 = document.getElementById('ob3Value3');
+
+
+    ob1Value1.value = '';
+    ob2Value2.value = '';
+
+    ob3Value3.value = '';
+
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+}
+
+
+
+function resetValues3(exerciseIndex) {
+    const ob4Value1 = document.getElementById('ob4Value1');
+
+
+    ob4Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+}
+
+
+
+
+function resetValues4(exerciseIndex) {
+    const ob5Value1 = document.getElementById('ob5Value1');
+
+
+    ob5Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+
+
+}
+
+
+function resetValues5(exerciseIndex) {
+    const ob6Value1 = document.getElementById('ob6Value1');
+
+
+    ob6Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+}
+
+
+
+function resetValues6(exerciseIndex) {
+    const ob7Value1 = document.getElementById('ob7Value1');
+
+
+    ob7Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+
+
+}
+
+
+
+function resetValues7(exerciseIndex) {
+    const ob8Value1 = document.getElementById('ob8Value1');
+
+
+    ob8Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+}
+
+
+
+function resetValues8(exerciseIndex) {
+    const ob9Value1 = document.getElementById('ob9Value1');
+
+
+    ob9Value1.value = '';
+
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    validationResult.textContent = '';
+
+
+}
+
+
+
 
 
 
