@@ -4,26 +4,26 @@
 
 const exercisesData = [
     {     exerciseIndex: 1,
-        description: "Mon père a acheté un terrain pour 49425€ et l'a vendu au bout d'un moment, réalisant un bénéfice de 4%, en cherchant le prix de vente du terrain?", prix: 49425, pourcentage: 0.04 },
-    {exerciseIndex: 2,description:"Complétez la reconstruction du tableau suivant en plaçant les deux signifiants dans les cases appropriées, en vous basant sur le tableau de données précédent"
+        description: "Voici les réponses correctes:", prix: 49425, pourcentage: 0.04 },
+    {exerciseIndex: 2,description:"Voici les réponses correctes:"
 
     , pourcentage_question_2: 104, prix_de_gain_question_2: 1977, prix_totale_question_2: 49425 * (1 + 0.04) },
 
 
-    {   exerciseIndex: 3,description:"Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut",pourcentage_totale_question_3: 104},
+    {   exerciseIndex: 3,description:"Voici les réponses correctes:",pourcentage_totale_question_3: 104},
 
-    { exerciseIndex: 4,description:"Après une lecture verticale des deux colonnes (1) et (2) , je cherche le desiré (2)",prix_de_gain_question_4: 1977},
+    { exerciseIndex: 4,description:"Voici les réponses correctes:",prix_de_gain_question_4: 1977},
 
-    {exerciseIndex: 5,description:"Après une lecture horizontale de le deuxième section ( Ob 3) , je cherche ce qu'il faut", prix_totale_question_5: 51402},
-
-
-
-    {exerciseIndex: 6,description:"Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut", pourcentage_totale_question_6: 104},
-
-    { exerciseIndex: 7,description:"Après une lecture verticale des deux colonnes (2) et (3) , je cherche ob(3)",prix_totale_question_7: 51402},
+    {exerciseIndex: 5,description:"Voici les réponses correctes:", prix_totale_question_5: 51402},
 
 
-    {exerciseIndex: 8,description:"Après une lecture verticale des deux colonnes (1) et (3) , je cherche ob(3) sans chercher ob(2)", prix_totale_question_8: 51402},
+
+    {exerciseIndex: 6,description:"Voici les réponses correctes:", pourcentage_totale_question_6: 104},
+
+    { exerciseIndex: 7,description:"Voici les réponses correctes:",prix_totale_question_7: 51402},
+
+
+    {exerciseIndex: 8,description:"Voici les réponses correctes:", prix_totale_question_8: 51402},
 
 
 
@@ -113,7 +113,7 @@ function displayCorrection(exerciseIndex) {
     const exerciseData = exercisesData.find((exercise) => exercise.exerciseIndex === exerciseIndex);
   
     if (exerciseData) {
-      correctionText.textContent = `Description: ${exerciseData.description}\n\n\n`;
+      correctionText.textContent = `${exerciseData.description}\n\n\n`;
       
       // Add specific properties for the exercise (e.g., prix, pourcentage, ob1, ob2, etc.) with formatted names
       for (const prop in exerciseData) {
