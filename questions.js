@@ -141,48 +141,43 @@ function verifyExercise(exerciseIndex) {
 
 
 function verifyQuestion2(exerciseIndex) {
-
     console.log(exerciseIndex, "exerciseIndex of question 2");
-
-
 
     const ob1Value = parseFloat(document.getElementById('ob1Value1').value);
     const ob2Value = parseFloat(document.getElementById('ob2Value2').value);
     const ob3Value = parseFloat(document.getElementById('ob3Value3').value);
 
-
-
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-
- 
-
-
     if (
-(ob1Value === exercisesData[1].ob1 && ob2Value === exercisesData[1].ob2 && ob3Value === exercisesData[1].ob3)
+        ob1Value === exercisesData[1].ob1 &&
+        ob2Value === exercisesData[1].ob2 &&
+        ob3Value === exercisesData[1].ob3
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
     }
 
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
-    }
-
     const progress = (correctAnswersCount / exercisesData.length) * 100;
     updateProgressBar(progress);
 }
+
 
 
 function verifyQuestion3(exerciseIndex) {
@@ -210,20 +205,21 @@ function verifyQuestion3(exerciseIndex) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-    }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
     }
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
@@ -252,24 +248,25 @@ function verifyQuestion4(exerciseIndex) {
 
     if (
 (ob5Value === exercisesData[3].ob5 )
-    ) {
+    ){
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-    }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
     }
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
@@ -299,20 +296,21 @@ function verifyQuestion5(exerciseIndex) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-    }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
     }
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
@@ -344,22 +342,22 @@ function verifyQuestion6(exerciseIndex) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
     }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
-    }
-
     const progress = (correctAnswersCount / exercisesData.length) * 100;
     updateProgressBar(progress);
 }
@@ -385,24 +383,25 @@ function verifyQuestion7(exerciseIndex) {
 
     if (
 (ob8Value === exercisesData[6].ob8)
-    ) {
+    ){
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-    }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
     }
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
@@ -431,20 +430,21 @@ function verifyQuestion8(exerciseIndex) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
         correctAnswersCount++;
+
+        // Check if there are more exercises
+        if (exerciseIndex < exercisesData.length) {
+            setTimeout(() => {
+                validationResult.style.display = "none";
+                scrollToExercise(exerciseIndex + 1); // Scroll to the next exercise
+            }, 2000);
+        }
+
+        if (exerciseIndex === exercisesData.length) {
+            scrollToExercise(1);
+        }
     } else {
         validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
         validationResult.className = "validation-error";
-    }
-
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
     }
 
     const progress = (correctAnswersCount / exercisesData.length) * 100;
