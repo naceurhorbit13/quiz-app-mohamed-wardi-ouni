@@ -3,24 +3,27 @@
 
 
 const exercisesData = [
-    { prix: 49425, pourcentage: 0.04 },
-    { ob1: 104, ob2: 1977, ob3: 49425 * (1 + 0.04) },
+    {     exerciseIndex: 1,
+        description: "Mon père a acheté un terrain pour 49425€ et l'a vendu au bout d'un moment, réalisant un bénéfice de 4%, en cherchant le prix de vente du terrain?", prix: 49425, pourcentage: 0.04 },
+    {exerciseIndex: 2,description:"Complétez la reconstruction du tableau suivant en plaçant les deux signifiants dans les cases appropriées, en vous basant sur le tableau de données précédent"
+
+    , pourcentage_question_2: 104, prix_de_gain_question_2: 1977, prix_totale_question_2: 49425 * (1 + 0.04) },
 
 
-    { ob4: 104},
+    {   exerciseIndex: 3,description:"Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut",pourcentage_totale_question_3: 104},
 
-    { ob5: 1977},
+    { exerciseIndex: 4,description:"Après une lecture verticale des deux colonnes (1) et (2) , je cherche le desiré (2)",prix_de_gain_question_4: 1977},
 
-    { ob6: 51402},
-
-
-
-    { ob7: 104},
-
-    { ob8: 51402},
+    {exerciseIndex: 5,description:"Après une lecture horizontale de le deuxième section ( Ob 3) , je cherche ce qu'il faut", prix_totale_question_5: 51402},
 
 
-    { ob9: 51402},
+
+    {exerciseIndex: 6,description:"Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut", pourcentage_totale_question_6: 104},
+
+    { exerciseIndex: 7,description:"Après une lecture verticale des deux colonnes (2) et (3) , je cherche ob(3)",prix_totale_question_7: 51402},
+
+
+    {exerciseIndex: 8,description:"Après une lecture verticale des deux colonnes (1) et (3) , je cherche ob(3) sans chercher ob(2)", prix_totale_question_8: 51402},
 
 
 
@@ -91,50 +94,88 @@ function updateProgressBar(progress) {
 
 
 
+let incorrectAttempts = 0;
+
+function openModal() {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+function displayCorrection(exerciseIndex) {
+    const correctionText = document.getElementById("correctionText");
+  
+    // Find the exercise data based on exerciseIndex
+    const exerciseData = exercisesData.find((exercise) => exercise.exerciseIndex === exerciseIndex);
+  
+    if (exerciseData) {
+      correctionText.textContent = `Description: ${exerciseData.description}\n\n\n`;
+      
+      // Add specific properties for the exercise (e.g., prix, pourcentage, ob1, ob2, etc.) with spaces
+      for (const prop in exerciseData) {
+        if (prop !== "exerciseIndex" && prop !== "description") {
+          correctionText.textContent += `${prop}: ${exerciseData[prop]}\n\n`;
+        }
+      }
+  
+      openModal();
+    } else {
+      correctionText.textContent = "Exercise not found.";
+    }
+  }
+
+  
+
 function verifyExercise(exerciseIndex) {
     const prixValue = parseFloat(document.getElementById(`prixInput${exerciseIndex}`).value);
     const pourcentageValue = parseFloat(document.getElementById(`pourcentageInput${exerciseIndex}`).value);
-
+  
+    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
+    const tolerance = 0.0001;
+  
+    if (Math.abs(prixValue - exercisesData[exerciseIndex - 1].prix) < tolerance &&
+        Math.abs(pourcentageValue - exercisesData[exerciseIndex - 1].pourcentage) < tolerance) {
+      validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
+      validationResult.className = "validation-success";
+      correctAnswersCount++;
+      incorrectAttempts = 0; // Reset incorrectAttempts when the answer is correct
+    
+  
+    if (exerciseIndex < exercisesData.length) {
+      setTimeout(() => {
+        validationResult.style.display = "none";
+        scrollToExercise(exerciseIndex + 1);
+      }, 2000);
+    }
+  
+    if (exerciseIndex === exercisesData.length) {
+      scrollToExercise(1);
+    }
   
 
-    const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-    const tolerance = 0.0001;
+}     else {
+    validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
+    validationResult.className = "validation-error";
 
-    if (Math.abs(prixValue - exercisesData[exerciseIndex - 1].prix) < tolerance &&
-        Math.abs(pourcentageValue - exercisesData[exerciseIndex - 1].pourcentage) < tolerance
-    ) {
-        validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
-        validationResult.className = "validation-success";
-        correctAnswersCount++;
+    incorrectAttempts++;
 
-
-        // Fill the progress bar chunk with green color
-    } else {
-        validationResult.textContent = "Oh là là ! 🙈 Essayez à nouveau, vous êtes sur la bonne voie !";
-        validationResult.className = "validation-error";
+    if (incorrectAttempts >= 2) {
+      // Display the question mark icon if the user answers incorrectly twice
+      const questionMarkIcon = document.getElementById("questionMarkIcon");
+      questionMarkIcon.style.display = "block";
+      return; // Exit the function without scrolling
     }
-
-    // Always scroll to the next exercise
-    if (exerciseIndex < exercisesData.length) {
-        setTimeout(() => {
-            validationResult.style.display = "none";
-            scrollToExercise(exerciseIndex + 1);
-        }, 2000);
-    }
-
-
-    if (exerciseIndex === exercisesData.length) {
-        scrollToExercise(1);
-
-    }
-
-
+  }
     const progress = (correctAnswersCount / exercisesData.length) * 100;
     updateProgressBar(progress);
-
+  }
   
-}
+
 
 
 
@@ -150,9 +191,9 @@ function verifyQuestion2(exerciseIndex) {
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
     if (
-        ob1Value === exercisesData[1].ob1 &&
-        ob2Value === exercisesData[1].ob2 &&
-        ob3Value === exercisesData[1].ob3
+        ob1Value === exercisesData[1].pourcentage_question_2 &&
+        ob2Value === exercisesData[1].prix_de_gain_question_2 &&
+        ob3Value === exercisesData[1].prix_totale_question_2
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -200,7 +241,7 @@ function verifyQuestion3(exerciseIndex) {
 
 
     if (
-(ob4Value === exercisesData[2].ob4)
+(ob4Value === exercisesData[2].pourcentage_totale_question_3)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -228,26 +269,12 @@ function verifyQuestion3(exerciseIndex) {
 
 function verifyQuestion4(exerciseIndex) {
 
-
-
-
-
     const ob5Value = parseFloat(document.getElementById('ob5Value1').value);
-
-
-
-
-
-
 
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-
- 
-
-
     if (
-(ob5Value === exercisesData[3].ob5 )
+(ob5Value === exercisesData[3].prix_de_gain_question_4 )
     ){
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -275,23 +302,12 @@ function verifyQuestion4(exerciseIndex) {
 
 function verifyQuestion5(exerciseIndex) {
 
-
-
-
-
     const ob6Value = parseFloat(document.getElementById('ob6Value1').value);
  
-
-
-
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-
- 
-
-
     if (
-(ob6Value === exercisesData[4].ob6)
+(ob6Value === exercisesData[4].prix_totale_question_5)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -320,24 +336,13 @@ function verifyQuestion5(exerciseIndex) {
 function verifyQuestion6(exerciseIndex) {
 
 
-    console.log(exerciseIndex, "exerciseIndex of exercice 6");
-
-
-
-
     const ob7Value = parseFloat(document.getElementById('ob7Value1').value);
-
-
-
 
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
 
- 
-
-
     if (
-(ob7Value === exercisesData[5].ob7)
+(ob7Value === exercisesData[5].pourcentage_totale_question_6)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -364,25 +369,12 @@ function verifyQuestion6(exerciseIndex) {
 
 function verifyQuestion7(exerciseIndex) {
 
-
-
-
-
-
     const ob8Value = parseFloat(document.getElementById('ob8Value1').value);
-
-
-
-
 
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-
- 
-
-
     if (
-(ob8Value === exercisesData[6].ob8)
+(ob8Value === exercisesData[6].prix_totale_question_7)
     ){
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -410,22 +402,12 @@ function verifyQuestion7(exerciseIndex) {
 
 function verifyQuestion8(exerciseIndex) {
 
-
-    console.log(exerciseIndex, "exerciseIndex of exercice 8");
-
-
     const ob9Value = parseFloat(document.getElementById('ob9Value1').value);
-
-
 
     const validationResult = document.getElementById(`validationResult${exerciseIndex}`);
 
-
- 
-
-
     if (
-(ob9Value === exercisesData[7].ob9)
+(ob9Value === exercisesData[7].prix_totale_question_8)
     ) {
         validationResult.textContent = "Félicitations ! 🎉 Vous avez réussi à trouver les valeurs correctes !";
         validationResult.className = "validation-success";
@@ -451,10 +433,8 @@ function verifyQuestion8(exerciseIndex) {
     updateProgressBar(progress);
 }
 
-
 function scrollToExercise(exerciseIndex) {
     const currentValidationResult = document.getElementById(`validationResult${currentExercise}`);
-
 
     if (currentValidationResult) {
         currentValidationResult.style.display = "none";

@@ -10,39 +10,60 @@
     <div >
 
 
+      <div id="overlay" class="overlay"></div>
+
+
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Correction</h2>
+            <p id="correctionText">Here are the correct values:</p>
+        </div>
+    </div>
+
+
+
         <!-- Exercise 1 -->
         <div id="exercise1">
-            <h1>Exercice 1 : Question 1</h1>
+          <h1>Exercice 1 : Question 1</h1>
+      
+          <p>Mon père a acheté un terrain pour <b id="draggedValue1" class="draggable" draggable="true" ondragstart="drag(event, this)">49425€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue2" class="draggable" draggable="true" ondragstart="drag(event, this)">4%</b>, en cherchant le prix de vente du terrain?</p>
+      
+          <div class="table-container">
+              <table>
+                  <tr>
+                      <th>Signification verbale</th>
+                      <th>Valeur numérique</th>
+                  </tr>
+                  <tr>
+                      <td>Prix d'achat du terrain</td>
+                      <td>
+                          <input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                      </td>
+   
+                  </tr>
+                  <tr>
+                      <td>Pourcentage de profit</td>
+                      <td><input type="number" id="pourcentageInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="2">
+                          <button onclick="verifyExercise(1)">Vérifier les valeurs</button>
+                          <button onclick="resetValues1(1)">Ressayer</button>
+                       
+                          <button onclick="displayCorrection(1)">Correction</button>
+                        </td>
+                  </tr>
+              </table>
+          </div>
+      
+          <div id="validationResult1"></div>
 
-            <p>Mon père a acheté un terrain pour <b id="draggedValue1" class="draggable" draggable="true" ondragstart="drag(event, this)">49425€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue2" class="draggable" draggable="true" ondragstart="drag(event, this)">4%</b>, en cherchant le prix de vente du terrain?</p>
-            <table>
-                <tr>
-                    <th>Signification verbale</th>
-                    <th>Valeur numérique</th>
-                </tr>
-                <tr>
-                    <td>Prix d'achat du terrain</td>
-                    <td>
-                        <input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-                    
-                    
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pourcentage de profit</td>
-                    <td><input type="number" id="pourcentageInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button onclick="verifyExercise(1)">Vérifier les valeurs</button>
-                        <button onclick="resetValues1(1)">Ressayer</button>
+      </div>
+      
+      
 
-                    </td>
-
-                </tr>
-            </table>
-            <div id="validationResult1"></div>
-        </div>
 
 
 
@@ -76,6 +97,8 @@
                                              <td colspan="3">
                                                 <button onclick="verifyQuestion2(2)">Vérifier les valeurs</button>
                                                 <button onclick="resetValues2(2)">Ressayer</button>
+                                                <button onclick="displayCorrection(2)">Correction</button>
+
                         
                                             </td>
                                             
@@ -110,6 +133,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion3(3)">Vérifier les valeurs</button>
                         <button onclick="resetValues3(3)">Ressayer</button>
+                        <button onclick="displayCorrection(3)">Correction</button>
+
 
                     </td>
                     </tbody>
@@ -152,6 +177,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion4(4)">Vérifier les valeurs</button>
                         <button onclick="resetValues4(4)">Ressayer</button>
+                        <button onclick="displayCorrection(4)">Correction</button>
+
 
                     </td>
                     </tbody>
@@ -186,6 +213,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion5(5)">Vérifier les valeurs</button>
                         <button onclick="resetValues5(5)">Ressayer</button>
+                        <button onclick="displayCorrection(5)">Correction</button>
+
 
                     </td>
                       
@@ -218,6 +247,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion6(6)">Vérifier les valeurs</button>
                         <button onclick="resetValues6(6)">Ressayer</button>
+                        <button onclick="displayCorrection(6)">Correction</button>
+
 
                     </td>
                       
@@ -260,6 +291,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion7(7)">Vérifier les valeurs</button>
                         <button onclick="resetValues7(7)">Ressayer</button>
+                        <button onclick="displayCorrection(7)">Correction</button>
+
 
                     </td>
                       
@@ -305,6 +338,8 @@
                       <td colspan="3">
                         <button onclick="verifyQuestion8(8)">Vérifier les valeurs</button>
                         <button onclick="resetValues8(8)">Ressayer</button>
+                        <button onclick="displayCorrection(8)">Correction</button>
+
 
                     </td>
                       
