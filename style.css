@@ -328,6 +328,22 @@ button:hover {
 
 
 
+/* Pagination styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Hide all content except the first page */
+.content:not(:first-child) {
+    display: none;
+}
 
 
 

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Mohamed Wardi Ouni Mathematics Quiz App</title>
+</head>
+<body>
+    <div >
+
+
+      <div id="overlay" class="overlay"></div>
+
+
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  viewBox="0 0 24 24">
+              <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 15.586l-1.414 1.414-4.586-4.586-4.586 4.586-1.414-1.414 4.586-4.586-4.586-4.586 1.414-1.414 4.586 4.586 4.586-4.586 1.414 1.414-4.586 4.586z"/>
+            </svg>
+          </span>
+                      <h2>Correction</h2>
+            <p id="correctionText">Voici les réponses correctes:</p> 
+           
+        </div>
+    </div>
+
+
+
+
+        <div>
+
+
+          <div id="exercise9">
+            <h1>Exercice 2 : Question 1</h1>
+        
+            <p>Mon père a acheté un terrain pour <b id="draggedValue1" class="draggable" draggable="true" ondragstart="drag(event, this)">49425€</b> et l'a vendu au bout d'un moment, réalisant un bénéfice de <b id="draggedValue2" class="draggable" draggable="true" ondragstart="drag(event, this)">4%</b>, en cherchant le prix de vente du terrain?</p>
+        
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Signification verbale</th>
+                        <th>Valeur numérique</th>
+                    </tr>
+                    <tr>
+                        <td>Prix d'achat du terrain</td>
+                        <td>
+                            <input type="number" id="prixInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                        </td>
+     
+                    </tr>
+                    <tr>
+                        <td>Pourcentage de profit</td>
+                        <td><input type="number" id="pourcentageInput1" step="0.01" ondrop="drop(event, this)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button onclick="verifyQuestion9(9)">Vérifier les valeurs</button>
+                            <button onclick="resetValues1(1)">Ressayer</button>
+                         
+                            <button onclick="displayCorrection(1)">Correction</button>
+                          </td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div id="validationResult1"></div>
+    
+        </div>
+    
+          <div id="exercise10">
+              <h1>Exercice 2 : Question 2</h1>
+    
+              <div>
+                  <p> Complétez la reconstruction du tableau suivant en plaçant les deux signifiants dans les cases appropriées, en vous basant sur le tableau de données précédent </p>
+                  <table> 
+                      <thead> 
+                          <tr> 
+                              <th>L'origine</th>
+                               <th>L'augmentation</th> 
+                               <th>L'origine - L'augmentation</th> 
+                              </tr> </thead>
+                               <tbody> 
+                                  <tr>
+                                       <td>Le prix d'achat du terrain</td> 
+                                       <td>Profit</td> 
+                                       <td>Le prix de vente du terrain</td>
+                                       </tr> <tr> <td>100 %</td>
+                                           <td>4 %</td>
+                                            <td>  
+                                              <input type="text" id="ob1Value1" placeholder="( Ob 1 )">
+                                          </td> </tr> <tr> <td>49425 €</td>
+                                               <td>  <input type="text" id="ob2Value2" placeholder="( Ob 2 )" ></td> 
+                                               <td>  <input type="text" id="ob3Value3" placeholder="( Ob 3 )" ></td> </tr> 
+                                              
+                                               <td colspan="3">
+                                                  <button onclick="verifyQuestion10(10)">Vérifier les valeurs</button>
+                                                  <button onclick="resetValues2(2)">Ressayer</button>
+                                                  <button onclick="displayCorrection(2)">Correction</button>
+    
+                          
+                                              </td>
+                                              
+                                             
+                                          
+                                          
+                                          </tbody> </table>
+    
+    
+    
+                  <div id="validationResult2"></div>
+              </div>
+    
+          </div>
+          
+    
+    
+          <div id="exercise12">
+              <h1>Exercice 2 : Question 3</h1>
+    
+    
+              <div>
+                  <p>Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          <td>100 %</td>
+                          <td>    4 %        </td>
+                          <td><input type="text" id="ob4Value1" placeholder="(Ob1)"></td>
+                        </tr>
+                        <td colspan="3">
+                          <button onclick="verifyQuestion11(11)">Vérifier les valeurs</button>
+                          <button onclick="resetValues3(3)">Ressayer</button>
+                          <button onclick="displayCorrection(3)">Correction</button>
+    
+    
+                      </td>
+                      </tbody>
+                    </table>
+                  <div id="validationResult3"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+    
+    
+          <div id="exercise13">
+              <h1>Exercice 2 : Question 4</h1>
+    
+    
+              <div>
+                  <p>Après une lecture verticale des deux colonnes (1) et (2) , je cherche le desiré (2)</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          <td>100 %</td>
+                          <td>    4 %        </td>
+                          <td>-----------</td>
+                          
+                        </tr>
+                        <tr>
+                          <td>49425 €</td>
+                          <td><input type="text" id="ob5Value1" placeholder="(Ob2)"></td>
+    
+                           
+                           <td>-----------</td>
+                        
+                          
+                        </tr>
+                        
+                        <td colspan="3">
+                          <button onclick="verifyQuestion12(12)">Vérifier les valeurs</button>
+                          <button onclick="resetValues4(4)">Ressayer</button>
+                          <button onclick="displayCorrection(4)">Correction</button>
+    
+    
+                      </td>
+                      </tbody>
+                    </table>
+                  <div id="validationResult4"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+    
+    
+          <div id="exercise14">
+              <h1>Exercice 2 : Question 5</h1>
+    
+    
+              <div>
+                  <p>Après une lecture horizontale de le deuxième section ( Ob 3) , je cherche ce qu'il faut</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          <td> 49425 €</td>
+                          <td>    1977 €       </td>
+                          <td><input type="text" id="ob6Value1" placeholder="(Ob3)"></td>
+    
+                          
+                        </tr>
+    
+                        <td colspan="3">
+                          <button onclick="verifyQuestion13(13)">Vérifier les valeurs</button>
+                          <button onclick="resetValues5(5)">Ressayer</button>
+                          <button onclick="displayCorrection(5)">Correction</button>
+    
+    
+                      </td>
+                        
+                      </tbody>
+                    </table>
+                  <div id="validationResult5"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+    
+          <div id="exercise15">
+              <h1>Exercice 2 : Question 6</h1>
+    
+    
+              <div>
+                  <p>Après une lecture horizontale de la première section ( Ob 1) , je cherche ce qu'il faut</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          <td>100 %</td>
+                          <td>    4 %        </td>
+                          <td><input type="text" id="ob7Value1" placeholder="(Ob3)"></td>
+                        </tr>
+    
+                        <td colspan="3">
+                          <button onclick="verifyQuestion14(14)">Vérifier les valeurs</button>
+                          <button onclick="resetValues6(6)">Ressayer</button>
+                          <button onclick="displayCorrection(6)">Correction</button>
+    
+    
+                      </td>
+                        
+                      </tbody>
+                    </table>
+                  <div id="validationResult6"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+    
+          <div id="exercise16">
+              <h1>Exercice 2 : Question 7</h1>
+    
+    
+              <div>
+                  <p>Après une lecture verticale des deux colonnes (2) et (3) , je cherche ob(3)</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          <td>-----------</td>
+                          <td>4 %</td>
+                          <td>    104 %        </td>
+                        
+                          
+                        </tr>
+                        <tr>
+                          <td>-----------</td>
+                          <td>1977 €</td>
+                          <td><input type="text" id="ob8Value1" placeholder="(Ob3)"></td>
+                           
+                        
+                          
+                        </tr>
+    
+                        <td colspan="3">
+                          <button onclick="verifyQuestion15(15)">Vérifier les valeurs</button>
+                          <button onclick="resetValues7(7)">Ressayer</button>
+                          <button onclick="displayCorrection(7)">Correction</button>
+    
+    
+                      </td>
+                        
+                      </tbody>
+                    </table>
+                  <div id="validationResult7"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+    
+    
+          <div id="exercise8">
+              <h1>Exercice 2 : Question 8</h1>
+    
+    
+              <div>
+                  <p>Après une lecture verticale des deux colonnes (1) et (3) , je cherche ob(3) sans chercher ob(2)</p>
+                  <table>
+            
+                      <tbody>
+                        <tr>
+                          
+                          <td>100 %</td>
+                          <td>-----------</td>
+                          <td>    104 %        </td>
+                        
+                          
+                        </tr>
+                        <tr>
+                          
+                          <td>49425 €</td>
+                          <td>-----------</td>
+                          <td><input type="text" id="ob9Value1" placeholder="(Ob3)"></td>
+                           
+                           
+                          
+                        </tr>
+    
+                        <td colspan="3">
+                          <button onclick="verifyQuestion16(16)">Vérifier les valeurs</button>
+                          <button onclick="resetValues8(8)">Ressayer</button>
+                          <button onclick="displayCorrection(8)">Correction</button>
+    
+    
+                      </td>
+                        
+                      </tbody>
+                    </table>
+                  <div id="validationResult8"></div>
+              </div>
+    
+    
+    
+    
+    
+          </div>
+        </div>
+
+
+             <!-- page 3 -->
+                <!-- page 3 -->
+        <!-- page 3 -->
+        <!-- page 3 -->
+        <!-- page 3 --> 
+
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+            <div id="progress-text"></div>
+        </div>
+        
+          
+          
+
+          
+
+
+  
+        </div>
+
+
+
+
+</div>
+
+
+<div class="pagination">
+  <button id="prevPage">Exercice Précédant</button>
+  <button id="nextPage">Exercice Suivant</button>
+</div>
+
+    </div>
+    <script src="questions1.js"></script>
+
+  
+</body>
+</html>
+
+
+
